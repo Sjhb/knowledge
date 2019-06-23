@@ -1,0 +1,1 @@
+可选值：　relative fixed absolute sticky static inherit
