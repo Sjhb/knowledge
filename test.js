@@ -1,34 +1,43 @@
-function twoSum(nums, target) {
-    if (!nums || !target) return null
-    let i = 0, j = 0
-    while (i < nums.length) {
-        let remainNum = target - nums[i]
-        let remainIndex = nums.indexOf(remainNum, i + 1)
-        if (remainIndex > -1) {
-            j = remainIndex
-            break
-        }
-        i++
-    }
-    return j > 0 ? [i, j] : null
-}
-console.log(twoSum([2, 22, 66, 7, 11, 15], 9))
-function quickSort(arr){
-    let sort =  (array) => {
-      if (!array || array.length < 2) return array
-      const baseVal = array[0]
-      let leftArr = [], rightArr = [], i = 1
-      while(i < array.length) {
-        const tempVal = array[i]
-        if (baseVal > tempVal) {
-          leftArr.push(tempVal)
-        } else {
-          rightArr.push(tempVal)
-        }
-        i++
+/**
+ * @param {string} s
+ * @return {number}
+ */
+ var myAtoi = function(s) {
+  let index = 0;
+  let isCheckingEmpty = true, checkedPositiveNum = false;
+  let isNegative = false;
+  let resNum = 0;
+  while (s.length > index) {
+      let char = s[index];
+      if (isCheckingEmpty) {
+          if (char === '') {
+              index ++;
+          } else {
+              isCheckingEmpty = false;
+          }
+      } else if (!checkedPositiveNum){
+          checkedPositiveNum = true;
+          if (char !== '-' && char !== '+') {
+              continue;
+          }
+          if (char === '-') {
+              isNegative = true;
+          }
+          index++;
+      } else {
+          if (/[0-9]/.test(char)) {
+              resNum = resNum*10 + Number(char);
+              index++;
+              if (!isNegative && resNum > (Math.pow(2, 31) - 1)) {
+                  return Math.pow(2, 31) - 1;
+              } else if (isNegative && resNum > Math.pow(2, 31)) {
+                  return 0 - Math.pow(2, 31) - 1;
+              }
+          } else {
+              break;
+          }
       }
-      return [...sort(leftArr), baseVal, ...sort(rightArr)]
-    }
-    return sort(arr)
   }
-  console.log(quickSort([11,22,3,3,3,311,45,98,7,4,2]))
+  return isNegative ? 0 - resNum : resNum;
+};
+myAtoi('    -42')
