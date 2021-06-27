@@ -1,43 +1,28 @@
-/**
- * @param {string} s
- * @return {number}
- */
- var myAtoi = function(s) {
-  let index = 0;
-  let isCheckingEmpty = true, checkedPositiveNum = false;
-  let isNegative = false;
-  let resNum = 0;
-  while (s.length > index) {
-      let char = s[index];
-      if (isCheckingEmpty) {
-          if (char === '') {
-              index ++;
-          } else {
-              isCheckingEmpty = false;
-          }
-      } else if (!checkedPositiveNum){
-          checkedPositiveNum = true;
-          if (char !== '-' && char !== '+') {
-              continue;
-          }
-          if (char === '-') {
-              isNegative = true;
-          }
-          index++;
-      } else {
-          if (/[0-9]/.test(char)) {
-              resNum = resNum*10 + Number(char);
-              index++;
-              if (!isNegative && resNum > (Math.pow(2, 31) - 1)) {
-                  return Math.pow(2, 31) - 1;
-              } else if (isNegative && resNum > Math.pow(2, 31)) {
-                  return 0 - Math.pow(2, 31) - 1;
-              }
-          } else {
-              break;
-          }
-      }
-  }
-  return isNegative ? 0 - resNum : resNum;
-};
-myAtoi('    -42')
+function quickSort (arr,start, end) {
+    let left = start || 0;
+    let right = end || arr.length - 1;
+    if (end - start < 2) {
+        return;
+    }
+    let midVal = arr[left];
+    while (left < right) {
+        console.log(left, right,arr)
+        while (midVal <= arr[right] && left < right) {
+            right--;
+        }
+        if (left === right) break;
+        arr[left] = arr[right];
+        arr[right] = midVal;
+        while (midVal >= arr[left] && left < right) {
+            left++;
+        }
+        if (left === right) break;
+        arr[right] = arr[left];
+        arr[left] = midVal;
+    }
+    quickSort(arr, start || 0, left);
+    quickSort(arr, left + 1, end || arr.length - 1);
+}
+let arr = [5, 9, 1, 9, 5, 3, 7, 6, 1] 
+quickSort(arr);
+console.log(arr)
