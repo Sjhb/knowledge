@@ -1,28 +1,24 @@
-function quickSort (arr,start, end) {
-    let left = start || 0;
-    let right = end || arr.length - 1;
-    if (end - start < 2) {
-        return;
+var letterCombinations = function(digits) {
+    if (!digits) {
+        return [];
     }
-    let midVal = arr[left];
-    while (left < right) {
-        console.log(left, right,arr)
-        while (midVal <= arr[right] && left < right) {
-            right--;
+    let res = [];
+    let startCharCode = 'a'.charCodeAt(0);
+    let len = digits.length;
+    function backTrack (path = [], i = 0) {
+        if (i === len) {
+            res.push(path);
+            return;
         }
-        if (left === right) break;
-        arr[left] = arr[right];
-        arr[right] = midVal;
-        while (midVal >= arr[left] && left < right) {
-            left++;
+        let num = Number(digits[i]);
+        let startChar = startCharCode + (num - 2) * 3;
+        let index = 0;
+        while (index < 3) {
+            backTrack([...path, String.fromCharCode(startChar + index)], i + 1);
+            index++;
         }
-        if (left === right) break;
-        arr[right] = arr[left];
-        arr[left] = midVal;
     }
-    quickSort(arr, start || 0, left);
-    quickSort(arr, left + 1, end || arr.length - 1);
-}
-let arr = [5, 9, 1, 9, 5, 3, 7, 6, 1] 
-quickSort(arr);
-console.log(arr)
+    backTrack();
+    return res;
+};
+console.log(letterCombinations("2345"))
