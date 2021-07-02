@@ -136,4 +136,6 @@ Firefox 的 HSTS 预加载列表：https://hg.mozilla.org/mozilla-central/raw-fi
 - 非对称加密：RSA、背包算法、Elgamal、Rabin，RSA使用最广泛，如SSH、HTTPS、TLS、电子证书、电子签名、电子身份证等。公钥+私钥，相对对称加密来说非对称加密速度很慢
 
 
-> 参考资料：https://zhuanlan.zhihu.com/p/30655259
+> 参考资料：
+> https://zhuanlan.zhihu.com/p/30655259
+> https://zhuanlan.zhihu.com/p/43789231

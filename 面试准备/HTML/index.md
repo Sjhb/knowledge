@@ -129,10 +129,11 @@ IE8/IE7/IE6支持document.createElement方法产生的标签，可以利用这�
 
 #### async defer
 
-async一旦下载完，渲染引擎就会中断渲染，执行这个脚本以后，再继续渲染。多个async脚本是不能保证加载顺序的。==“下载完就执行”==，乱序执行
+async一旦下载完，渲染引擎就会中断渲染，执行这个脚本以后，再继续渲染。多个async脚本是不能保证加载顺序的。==“下载完就执行”==，乱序执行，执行时机：load事件之前执行，但并不能确保与DOMContentLoaded的执行先后顺序。
 
-defer要等到整个页面在内存中正常渲染结束（DOM结构完全生成，以及其他脚本执行完成），才会执行。多个defer脚本会按照它们在页面出现的顺序加载。==“渲染完再执行”==
+defer要等到整个档解析完成（DOM结构完全生成，以及其他脚本执行完成），才会执行。多个defer脚本会按照它们在页面出现的顺序执行（下载在chrome中是并行 的）。==“渲染完再执行”==。执行时机：DOMContentLoaded和load事件之前执行
 
+DOMContentLoaded：当初始的 HTML 文档被完全加载和解析完成之后，DOMContentLoaded 事件被触发；
 #### 浏览器内多个标签页之间的通信
 
 localstorge、cookie+setInterval、服务器、postmessage、BroadcastChannel
