@@ -52,3 +52,16 @@
 51 前端-商城项目实战1.mp4
 52 商城项目实战2.mp4
 53 商城项目实战3.mp4
+
+#### react
+异步组件/suspense 等新版内容介绍
+使用 immutable 数据优化我们的 react 应用
+Vue Router 和 React Router实现的区别
+React-router详解
+服务端渲染 & 异步组件 & spa
+手写一个 react-router
+react 代码组织及 diff 详解
+组件的实现与挂载原理
+详解事务与队列原理
+Fiber Reconciler原理
+
