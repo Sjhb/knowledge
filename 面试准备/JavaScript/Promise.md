@@ -157,22 +157,10 @@ function finale (self) {
 function handle (self, defer) {
     while (self.state === 'promise') {
         self = self.value;
-           }
+   }
     // 兼容then注册和resovle一个pending中的Promise
-    if (
-        self.state === 'pending') {
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        ‘self.defered.push(defer)
+    if (self.state === 'pending') {
+        self.defered.push(defer)
         return;
     }
     self.handled = true;
