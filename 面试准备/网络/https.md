@@ -102,6 +102,10 @@ Signature 位于证书最末尾，签名算法 sha1WithRSAEncryption 在 Data �
 
 UA（浏览器或操作系统，user-agent）中会预先内置一些权威 CA 签发的根证书（Root Certificate）或中间证书（Intermediate Certificate）
 
+1、通过签名确定证书完整性
+2、本地有缓存ca机构的吊销证书列表，进行本地比对（CRL）
+3、在线实时查询（ocsp）
+
 #### https连接建立过程（LTS）
 
 非对称加密 + 对称加密：
