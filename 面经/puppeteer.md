@@ -10,7 +10,7 @@ Puppeteer是一个node库，基于DevTools Protocol，提供一组high-level API
 ### 知识点
 
 puppeteer能用来干什么
-    1、爬虫，优势：可爬spa，劣势：chromium吃资源没，怎么爬？
+    1、爬虫，优势：可爬spa，劣势：chromium吃资源，怎么爬？
     2、自动化测试，怎么做自动化测试：操作页面dom
     3、生成截图和pdf，服务端渲染服务、pdf生成等等
     4、其他功能，例如在论坛上发送文章
